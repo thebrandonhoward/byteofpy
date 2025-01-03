@@ -1,38 +1,15 @@
-from pprint import pprint
+import os
 import subprocess
-import sys
+import utilz
 
 """
 Random Python Notes
 """
-
-prompt = input("Clear terminal before starting? ")
 #--------------------------------------------------------------------------------------------------
-lineLength = 95
+utilz.adddescription("Call a startup script:")
+os.system('python3 startup.py')
 #--------------------------------------------------------------------------------------------------
-def adddescription(text):
-    addspacer()
-    print("| %s %s |" % (text, (" " * (lineLength - len(text)))))
-    addspacer()
-
-def addspacer():
-    print(" --------------------------------------------------------------------------------------------------")
-
-#--------------------------------------------------------------------------------------------------
-adddescription("Handle user input")
-if str(prompt).lower() == "y" or str(prompt).lower() == "yes":
-    print(subprocess.run(["clear"], capture_output=True, text=True).stdout)
-#--------------------------------------------------------------------------------------------------
-adddescription("Print some python version details")
-print(sys.version)
-pprint(sys.version_info)
-print(sys.platform)
-print(sys.argv)
-#--------------------------------------------------------------------------------------------------
-adddescription("Print everything stored in globals to this point")
-pprint(globals())
-#--------------------------------------------------------------------------------------------------
-adddescription("Read file and print the contents of this script")
+utilz.adddescription("Read file and print the contents of this script:")
 thisFile = str(__file__)
 
 file = None
@@ -50,14 +27,10 @@ finally:
         file.close()
         print("<<FILE SUCCESSFULLY CLOSED>>")
 #--------------------------------------------------------------------------------------------------
-adddescription("Multiply with string prints n times")
+utilz.adddescription("Multiply with string prints n times")
 print("%s" % ("he" * 10))
 #--------------------------------------------------------------------------------------------------
-adddescription("Run shell commands")
+utilz.adddescription("Run shell commands")
 print(subprocess.run(["ls", "-larit"], capture_output=True, text=True).stdout)
-print(subprocess.run(["python3", "hello.py"], capture_output=True, text=True).stdout)
-#--------------------------------------------------------------------------------------------------
-
-#--------------------------------------------------------------------------------------------------
-
+print(subprocess.run(["python3", "greeting.py"], capture_output=True, text=True).stdout)
 #--------------------------------------------------------------------------------------------------
