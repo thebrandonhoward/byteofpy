@@ -2,8 +2,7 @@
 import os
 import subprocess
 
-from utilz import adddescription
-from utilz import addline
+from utilz import adddescription, addline
 
 #--------------------------------------------------------------------------------------------------
 def printnotes():
@@ -20,7 +19,6 @@ def printnotes():
     try:
         with open(this_file, encoding="utf-8") as file:
             print(file.read())
-
     except FileNotFoundError:
         print(f"{this_file} does not exist.")
     finally:
@@ -45,15 +43,12 @@ def printnotes():
     adddescription("Working with string printf stype formatting:")
     a = 44.000
     b = 45.001
-    price = a + b
-    print('''%.2f %s %.2f %s %.2f''' % (a, "plus", b, "equals", price))
-    print('''%.3f %s %.3f %s %.3f''' % (a, "plus", b, "equals", price))
+    print("""%.2f %s %.2f %s %.2f""" % (a, "plus", b, "equals", a+b))
+    print("""%.3f %s %.3f %s %.3f""" % (a, "plus", b, "equals", a+b))
     addline()
     #----------------------------------------------------------------------------------------------
     adddescription("Working with string fstring stype formatting:")
     c = "Welcome"
-    d = "Home"
-    print(f"Welcome {d}")
     print(f"{c} Home")
     print(f"1 + 1 = {1+1}")
     addline()
