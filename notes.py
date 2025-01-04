@@ -159,7 +159,7 @@ def printnotes():
     addline()
     #----------------------------------------------------------------------------------------------
     adddescription("Working with unlimited dictionary args calling functions(**):")
-    snippets.printd(city="New Orleans", state="Louisiana", code=318)
+    snippets.printd(city="New Orleans", state="Louisiana", code=504)
     addline()
     #----------------------------------------------------------------------------------------------
     adddescription("Working with unlimited dictionary and required args calling functions(**):")
