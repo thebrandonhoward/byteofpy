@@ -1,3 +1,4 @@
+"""Various functon related notes"""
 def mf(val, values=[]):
     """Behavior of mutable default in function"""
     values.append(val + 1)
