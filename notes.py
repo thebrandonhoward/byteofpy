@@ -2,7 +2,8 @@
 import os
 import subprocess
 
-from utilz import adddescription, addline
+from utilz import adddescription
+from utilz import addline
 
 #--------------------------------------------------------------------------------------------------
 def printnotes():
@@ -35,8 +36,10 @@ def printnotes():
     addline()
     #----------------------------------------------------------------------------------------------
     adddescription("Run shell commands with subprocess:")
-    print(subprocess.run(["ls", "-larit"], capture_output=True, text=True, check=False).stdout)
-    print(subprocess.run(["python3", "greeting.py"], capture_output=True, text=True, check=False).stdout)
+    cmds = ["ls", "-larit"]
+    print(subprocess.run(cmds, capture_output=True, text=True, check=False).stdout)
+    cmds = ["python3", "greeting.py"]
+    print(subprocess.run(cmds, capture_output=True, text=True, check=False).stdout)
     addline()
     #----------------------------------------------------------------------------------------------
     adddescription("Working with string printf stype formatting:")
@@ -65,7 +68,7 @@ def printnotes():
             self.year = year
 
         def __str__(self):
-            return "{" + f"color: {self.color}, make: {self.make}, model: {self.model}, year: {self.year}" + "}"
+            return str(self.__dict__)
 
         def getcolor(self):
             """Gets vehicle color"""
