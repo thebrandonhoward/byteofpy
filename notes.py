@@ -1,47 +1,44 @@
+"""Random Python Notes"""
 import os
 import subprocess
+
 from utilz import adddescription, addline
 
-"""
-Random Python Notes
-"""
 #--------------------------------------------------------------------------------------------------
 def printnotes():
     """Main method of execution"""
     adddescription("Call a startup script:")
     os.system('python3 startup.py')
     addline()
-    #--------------------------------------------------------------------------------------------------
+    #----------------------------------------------------------------------------------------------
     adddescription("Read file and print the contents of this script:")
-    thisFile = str(__file__)
+    this_file = str(__file__)
 
     file = None
 
     try:
-        file = open(thisFile)
-
-        for f in file:
-            print(str(f))
+        with open(this_file, encoding="utf-8") as file:
+            print(file.read())
 
     except FileNotFoundError:
-        print("%s %s" % (thisFile, "does not exist."))
+        print(f"{this_file} does not exist.")
     finally:
         if str(type(file)) == "<class '_io.TextIOWrapper'>":
             file.close()
             print("<<FILE SUCCESSFULLY CLOSED>>")
 
     addline()
-    #--------------------------------------------------------------------------------------------------
+    #----------------------------------------------------------------------------------------------
     adddescription("Multiply with string prints n times:")
-    print("%s" % ("he" * 10))
-    print("%s" % ("ho " * 10))
+    print(f"{"he" * 10}")
+    print(f"{"ho " * 10}")
     addline()
-    #--------------------------------------------------------------------------------------------------
+    #----------------------------------------------------------------------------------------------
     adddescription("Run shell commands with subprocess:")
-    print(subprocess.run(["ls", "-larit"], capture_output=True, text=True).stdout)
-    print(subprocess.run(["python3", "greeting.py"], capture_output=True, text=True).stdout)
+    print(subprocess.run(["ls", "-larit"], capture_output=True, text=True, check=False).stdout)
+    print(subprocess.run(["python3", "greeting.py"], capture_output=True, text=True, check=False).stdout)
     addline()
-    #--------------------------------------------------------------------------------------------------
+    #----------------------------------------------------------------------------------------------
     adddescription("Working with string printf stype formatting:")
     a = 44.000
     b = 45.001
@@ -49,7 +46,7 @@ def printnotes():
     print('''%.2f %s %.2f %s %.2f''' % (a, "plus", b, "equals", price))
     print('''%.3f %s %.3f %s %.3f''' % (a, "plus", b, "equals", price))
     addline()
-    #--------------------------------------------------------------------------------------------------
+    #----------------------------------------------------------------------------------------------
     adddescription("Working with string fstring stype formatting:")
     c = "Welcome"
     d = "Home"
@@ -57,9 +54,10 @@ def printnotes():
     print(f"{c} Home")
     print(f"1 + 1 = {1+1}")
     addline()
-    #--------------------------------------------------------------------------------------------------
+    #----------------------------------------------------------------------------------------------
     adddescription("Working with classes:")
     class Vehicle:
+        """Parent Vehicle Class"""
         def __init__(self, color, make, model, year):
             self.color = color
             self.make = make
@@ -70,17 +68,22 @@ def printnotes():
             return "{" + f"color: {self.color}, make: {self.make}, model: {self.model}, year: {self.year}" + "}"
 
         def getcolor(self):
+            """Gets vehicle color"""
             return self.color
 
     class Automobile(Vehicle):
+        """Child type of vehicle class"""
         @classmethod
         def rundiagnostics(cls):
+            """Statically does a diagnostic check on automobile"""
             print("Running diagnostics...Complete.")
 
     class Truck(Automobile):
+        """Automobile type class"""
         pass
 
     class Bicycle(Vehicle):
+        """Vehicle type class"""
         pass
 
     vehicle = Vehicle("Green", "Model", "A", "1800")
@@ -88,64 +91,63 @@ def printnotes():
     truck = Truck("Black", "Pickup", "T", "1800")
     bicycle = Bicycle("Tan", "Shwinn", "T", "1800")
 
-    print("Vehicle: %s" % vehicle)
-    print("Vehicle: %s" % vehicle.getcolor())
-    print("Vehicle: %s" % vehicle.year)
-    print("Vehicle: %s" % vehicle.make)
-    print("Vehicle: %s" % vehicle.model)
-    print("Vehicle: %s" % vehicle.color)
+    print(f"Vehicle: {vehicle}")
+    print(f"Vehicle: {vehicle.getcolor()}")
+    print(f"Vehicle: {vehicle.year}")
+    print(f"Vehicle: {vehicle.make}")
+    print(f"Vehicle: {vehicle.model}")
+    print(f"Vehicle: {vehicle.color}")
     addline()
-    print("Automobile: %s" % automobile)
-    print("Automobile: %s" % automobile.getcolor())
-    print("Automobile: %s" % automobile.year)
-    print("Automobile: %s" % automobile.make)
-    print("Automobile: %s" % automobile.model)
-    print("Automobile: %s" % automobile.year)
-    print("Automobile:", Automobile.rundiagnostics())
+    print(f"Automobile: {automobile}")
+    print(f"Automobile: {automobile.getcolor()}")
+    print(f"Automobile: {automobile.year}")
+    print(f"Automobile: {automobile.make}")
+    print(f"Automobile: {automobile.model}")
+    print(f"Automobile: {automobile.year}")
+    print(f"Automobile: {Automobile.rundiagnostics()}")
     addline()
-    print("Truck: %s" % truck)
-    print("Truck: %s" % truck.getcolor())
-    print("Truck: %s" % truck.year)
-    print("Truck: %s" % truck.make)
-    print("Truck: %s" % truck.model)
-    print("Truck: %s" % truck.color)
+    print(f"Truck: {truck}")
+    print(f"Truck: {truck.getcolor()}")
+    print(f"Truck: {truck.year}")
+    print(f"Truck: {truck.make}")
+    print(f"Truck: {truck.model}")
+    print(f"Truck: {truck.color}")
     addline()
-    print("Bicycle: %s" % bicycle)
-    print("Bicycle: %s" % bicycle.getcolor())
-    print("Bicycle: %s" % bicycle.year)
-    print("Bicycle: %s" % bicycle.make)
-    print("Bicycle: %s" % bicycle.model)
-    print("Bicycle: %s" % bicycle.color)
+    print(f"Bicycle: {bicycle}")
+    print(f"Bicycle: {bicycle.getcolor()}")
+    print(f"Bicycle: {bicycle.year}")
+    print(f"Bicycle: {bicycle.make}")
+    print(f"Bicycle: {bicycle.model}")
+    print(f"Bicycle: {bicycle.color}")
     addline()
-    #--------------------------------------------------------------------------------------------------
+    #----------------------------------------------------------------------------------------------
     adddescription("Working with docstring:")
     print(printnotes.__doc__)
     addline()
-    #--------------------------------------------------------------------------------------------------
+    #----------------------------------------------------------------------------------------------
     adddescription("Working with lists:")
     addline()
-    #--------------------------------------------------------------------------------------------------
+    #----------------------------------------------------------------------------------------------
     adddescription("Working with dictionaries:")
     addline()
-    #--------------------------------------------------------------------------------------------------
+    #----------------------------------------------------------------------------------------------
     adddescription("Working with tuples:")
     addline()
-    #--------------------------------------------------------------------------------------------------
+    #----------------------------------------------------------------------------------------------
     adddescription("Working with sets:")
     addline()
-    #--------------------------------------------------------------------------------------------------
+    #----------------------------------------------------------------------------------------------
     adddescription("Working with dates:")
     addline()
-    #--------------------------------------------------------------------------------------------------
+    #----------------------------------------------------------------------------------------------
     adddescription("Working with json:")
     addline()
-    #--------------------------------------------------------------------------------------------------
+    #----------------------------------------------------------------------------------------------
     adddescription("Working with regex:")
     addline()
-    #--------------------------------------------------------------------------------------------------
+    #----------------------------------------------------------------------------------------------
     adddescription("Working with ranges:")
     addline()
 
 # -Main -------------------------------------------------------------------------------------------
 printnotes()
-

@@ -1,1 +1,2 @@
+"""Greeting module"""
 print("Greetings!")
