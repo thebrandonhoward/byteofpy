@@ -1,5 +1,6 @@
 """Random Python Notes"""
 import os
+import functions as snippets
 import subprocess
 
 from utilz import adddescription, addline
@@ -122,6 +123,47 @@ def printnotes():
     #----------------------------------------------------------------------------------------------
     adddescription("Working with docstring:")
     print(printnotes.__doc__)
+    addline()
+    #----------------------------------------------------------------------------------------------
+    adddescription("Working with mutable functions:")
+    snippets.mf(0)
+    snippets.mf(1)
+    snippets.mf(2)
+    addline()
+    #----------------------------------------------------------------------------------------------
+    adddescription("Working with keyword calling functions(*,):")
+    snippets.divide(left=1, right=7)
+    snippets.divide(right=7, left=1)
+    addline()
+    snippets.divide(1, 7)
+    snippets.divide(7, 1)
+    addline()
+    #----------------------------------------------------------------------------------------------
+    adddescription("Working with keyword only functions(*,):")
+    snippets.sum(left=1, right=7, verbose=True)
+    snippets.sum(right=7, left=1, verbose=False)
+    addline()
+    #----------------------------------------------------------------------------------------------
+    adddescription("Working with non-keyword calling functions(/):")
+    snippets.add(1, 7)
+    addline()
+    #----------------------------------------------------------------------------------------------
+    adddescription("Working with unlimited args calling functions(*):")
+    snippets.sumall(10, 20, 30, 40)
+    snippets.sumall(10, 10, 30)
+    addline()
+    #----------------------------------------------------------------------------------------------
+    adddescription("Working with unlimited and required args calling functions(*):")
+    snippets.sumallreq("Test2", 10, 20, 30, 40)
+    snippets.sumallreq("Test1", 10, 10, 70)
+    addline()
+    #----------------------------------------------------------------------------------------------
+    adddescription("Working with unlimited dictionary args calling functions(**):")
+    snippets.printd(city="New Orleans", state="Louisiana", code=318)
+    addline()
+    #----------------------------------------------------------------------------------------------
+    adddescription("Working with unlimited dictionary and required args calling functions(**):")
+    snippets.displaytree("Jack", "Jill", brother="JJ", sister="jj")
     addline()
     #----------------------------------------------------------------------------------------------
     adddescription("Working with lists:")
