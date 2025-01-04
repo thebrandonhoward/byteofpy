@@ -6,7 +6,7 @@ LINE_LENGTH = 82
 def adddescription(text):
     """Formats a description header"""
     addspacer()
-    print(f"| {text} {(" " * (LINE_LENGTH - len(text)))} |")
+    print(f"| {text} {" " * (LINE_LENGTH - len(text))} |")
     addspacer()
 
 def addspacer():

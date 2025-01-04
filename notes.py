@@ -30,8 +30,8 @@ def printnotes():
     addline()
     #----------------------------------------------------------------------------------------------
     adddescription("Multiply with string prints n times:")
-    print(f"{"he" * 10}")
-    print(f"{"ho " * 10}")
+    print("he" * 10)
+    print("ho " * 10)
     addline()
     #----------------------------------------------------------------------------------------------
     adddescription("Run shell commands with subprocess:")
@@ -84,7 +84,8 @@ def printnotes():
 
     class Bicycle(Vehicle):
         """Vehicle type class"""
-        pass
+        def __str__(self):
+            return str(self.__dict__)
 
     vehicle = Vehicle("Green", "Model", "A", "1800")
     automobile = Automobile("Red", "Model", "B", "1801")

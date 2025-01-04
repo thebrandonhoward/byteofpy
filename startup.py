@@ -17,6 +17,12 @@ class DTO():
         self.should_clear = False
         self.sleep_time = 5
 
+    def __str__(self):
+        return str(self.__dict__)
+
+    def setshouldclear(self, should_clear):
+        """Set clear terminal value"""
+        self.should_clear = should_clear
 # -------------------------------------------------------------------------------------------------
 def startup(dto):
     """Main method of execution"""
@@ -28,7 +34,7 @@ def startup(dto):
     greet(dto)
     addline()
 
-    info()
+    info(dto)
     addline()
 
     print("-" * 45)
@@ -42,18 +48,20 @@ def prompt(dto):
     """Handle user prompts"""
     clrresp = input(dto.clear_prompt)
     if clrresp.lower() == 'y' or clrresp.lower() == "yes":
+        dto.setshouldclear(True)
         os.system('clear')
 
 def greet(dto):
     """Handle greeting message"""
     print(dto.greeting)
 
-def info():
+def info(dto):
     """Prints system related info"""
     print(sys.version)
     pprint(sys.version_info)
     print(sys.platform)
     print(sys.argv)
+    print(dto)
     pprint(globals())
 
 # -------------------------------------------------------------------------------------------------
