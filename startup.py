@@ -32,7 +32,7 @@ def startup(dto):
     greet(dto)
     print(dto.startup_message)
 
-    for s in range(0, 5):
+    for _ in range(7):
         print("-> ->", end=" ")
         sys.stdout.flush()
         time.sleep(dto.sleep_time)
