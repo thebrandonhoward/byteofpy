@@ -1,14 +1,18 @@
+"""Various utility functions"""
 #--------------------------------------------------------------------------------------------------
-lineLength = 95
+LINE_LENGTH = 82
 
 #--------------------------------------------------------------------------------------------------
 def adddescription(text):
+    """Formats a description header"""
     addspacer()
-    print("| %s %s |" % (text, (" " * (lineLength - len(text)))))
+    print(f"| {text} {(" " * (LINE_LENGTH - len(text)))} |")
     addspacer()
 
 def addspacer():
+    """Adds a spacer line"""
     print(" -------------------------------------------------------------------------------------")
 
 def addline():
-    print()
+    """Adds a blank line"""
+    print('')
