@@ -2,6 +2,7 @@
 import os
 import functions as snippets
 import subprocess
+from numpie import startnumpy
 
 from utilz import adddescription, addline
 
@@ -27,6 +28,12 @@ def printnotes():
             file.close()
             print("<<FILE SUCCESSFULLY CLOSED>>")
 
+    addline()
+    #----------------------------------------------------------------------------------------------
+    adddescription("Working with string slicing:")
+    slc = "HELLO WORLD"
+    print(f"{slc} [3:7] = {slc[3:7]}")
+    print(f"{slc} [-8:-2] = {slc[-8:-2]}")
     addline()
     #----------------------------------------------------------------------------------------------
     adddescription("Multiply with string prints n times:")
@@ -167,6 +174,18 @@ def printnotes():
     addline()
     #----------------------------------------------------------------------------------------------
     adddescription("Working with lists:")
+    list1 = ["Rohan", "Physics", 21, 69.75]
+    list2 = [1, 2, 3, 4, 5]
+    list3 = ["a", "b", "c", "d"]
+    list4 = [25.50, True, -55, 1+2j]
+    print(list1)
+    print(list2)
+    print(list3)
+    print(list4)
+    list1.extend(list2)
+    print(f"List1 extended: {list1}")
+    list4.pop(1)
+    print(f"List4 pop[1]: {list4}")
     addline()
     #----------------------------------------------------------------------------------------------
     adddescription("Working with dictionaries:")
@@ -189,6 +208,25 @@ def printnotes():
     #----------------------------------------------------------------------------------------------
     adddescription("Working with ranges:")
     addline()
+    # ----------------------------------------------------------------------------------------------
+    adddescription("Working with request module:")
+    addline()
+    # ----------------------------------------------------------------------------------------------
+    adddescription("Working with numpy:")
+    addline()
+    # ----------------------------------------------------------------------------------------------
+    adddescription("Working with pandas:")
+    addline()
+    # ----------------------------------------------------------------------------------------------
+    adddescription("Working with scipy:")
+    addline()
+    # ----------------------------------------------------------------------------------------------
+    adddescription("Working with django:")
+    addline()
+    # ----------------------------------------------------------------------------------------------
+    adddescription("Working with mysql:")
+    addline()
 
 # -Main -------------------------------------------------------------------------------------------
 printnotes()
+startnumpy()
